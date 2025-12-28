@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>BDIRA RESTO – Restaurant à Sahline | Menu</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ===== SEO Metadata ===== -->
+<meta name="description" content="BDIRA RESTO à Sahline à Monastir. Découvrez notre menu, plats, fruits de mer et spécialités maison.">
+<meta name="keywords" content="Restaurant, BDIRA RESTO, Menu, Galerie, Tunisie">
+<meta name="robots" content="index, follow">
+
+
+<style>
+:root{
+  --main:#6f4e37;
+  --dark:#3b2f2f;
+  --light:#fff5e9;
+  --card:#ffe6c7;
+}
+
+/* ===== RESET ===== */
+*{margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI', sans-serif;}
+html{scroll-behavior:smooth;}
+body{background:var(--light); color:var(--dark);}
+
+/* ===== HEADER ===== */
+header{background:var(--main); color:white; position:sticky; top:0; z-index:1000;}
+.nav{max-width:1200px; margin:auto; padding:15px; display:flex; justify-content:space-between; align-items:center;}
+.nav a{color:white; text-decoration:none; margin-left:20px;}
+.nav a:hover{text-decoration:underline;}
+
+/* ===== HERO ===== */
+.hero{
+  height:80vh;
+  display:flex; align-items:center; justify-content:center; text-align:center;
+  background:linear-gradient(rgba(0,0,0,.4),rgba(0,0,0,.4)),
+  url('1.jpg') center/cover;
+  color:white; overflow:hidden;
+}
+
+.hero div{
+  opacity:0;
+  transform:translateY(30px) scale(0.95);
+  animation:fadeInUpScale 1.2s forwards;
+  animation-delay:0.3s;
+}
+
+@keyframes fadeInUpScale{
+  0%{opacity:0; transform:translateY(30px) scale(0.95);}
+  100%{opacity:1; transform:translateY(0) scale(1);}
+}
+
+.hero h1{font-size:48px; margin-bottom:15px;}
+.hero p{font-size:18px; margin-bottom:25px;}
+
+.btn{
+  background:var(--main); color:white; padding:12px 30px; border-radius:30px; text-decoration:none;
+  transition:.3s, transform .3s;
+}
+.btn:hover{opacity:.85; transform:scale(1.05);}
+
+/* ===== FLOATING DIV STRONG ===== */
+.floating-div{
+  width:250px;
+  height:100px;
+  background:linear-gradient(120deg,#ffe6c7,#ffd19c);
+  border-radius:15px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 10px 20px rgba(111,78,55,0.4);
+  margin:auto;
+  margin-bottom:40px;
+  animation:floatPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes floatPulse{
+  0%{transform:translateY(0) scale(1);}
+  50%{transform:translateY(-12px) scale(1.03);}
+  100%{transform:translateY(0) scale(1);}
+}
+
+/* ===== SECTIONS ===== */
+section{padding:40px 20px;}
+h2{text-align:center; margin-bottom:40px; font-size:32px;}
+.status-ferme{padding:8px 18px;border-radius:30px;font-weight:700;font-size:14px;border:1px solid rgba(255,107,107,.4);box-shadow:0 0 25px rgba(255,107,107,.25);transition:0.3s;}
+
+/* ===== MON HORAIRE D'OUVERTURE ===== */
+h3{text-align:center; margin-bottom:40px; font-size:32px;}
+.opening-hours{
+  background:#fff;
+  color:#333;
+  text-align:center;
+  padding:30px 20px;
+  border-radius:15px;
+  max-width:500px;
+  margin:auto;
+  box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+
+.opening-hours h2{
+  font-size:24px;
+  margin-bottom:15px;
+}
+
+.opening-hours .status span{
+  display:inline-block;
+  padding:6px 15px;
+  border-radius:20px;
+  font-weight:bold;
+  color:#fff;
+  background:#2ecc71; /* vert pour Ouvert */
+}
+
+.opening-hours .status span.closed{
+  background:#e74c3c; /* rouge pour Fermé */
+}
+
+.opening-hours table{
+  width:100%;
+  margin-top:15px;
+  border-collapse:collapse;
+}
+
+.opening-hours table td{
+  padding:8px 0;
+  font-size:16px;
+}
+
+.opening-hours small{
+  font-weight:normal;
+  color:#666;
+  margin-left:5px;
+}
+
+/* ===== HOTLY MENU ===== */
+.menu-section{
+  border:2px solid var(--main);
+  border-radius:15px;
+  padding:20px;
+  margin-bottom:30px;
+  background:linear-gradient(145deg, #fff5e9, #ffe6c7);
+  box-shadow:0 10px 25px rgba(0,0,0,0.2);
+  transition:all 0.4s ease, transform 0.4s ease;
+}
+.menu-section:hover{
+  transform:scale(1.03) translateY(-5px);
+  box-shadow:0 18px 40px rgba(0,0,0,0.35);
+  background:linear-gradient(120deg,#ffd19c,#ffe6c7);
+}
+.menu-section legend{
+  padding:0 10px;
+  font-weight:bold;
+  font-size:20px;
+  color:var(--main);
+}
+.menu-section ul{list-style:none; padding:0;}
+.menu-section ul li{
+  display:flex;
+  justify-content:space-between;
+  padding:10px 15px;
+  border-bottom:1px solid rgba(0,0,0,0.1);
+  transition:all 0.3s ease;
+  cursor:pointer;
+}
+.menu-section ul li:hover{
+  transform:scale(1.05);
+  color:#d35400;
+}
+
+/* ===== GALLERY ===== */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:15px;
+}
+.gallery div{
+  overflow:hidden;
+  border-radius:15px;
+  box-shadow:0 10px 25px rgba(0,0,0,.2);
+}
+.gallery img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:.5s;
+}
+.gallery div:hover img{transform:scale(1.1);}
+
+/* ===== TITRE ===== */
+h2{
+  text-align:center;
+  margin:40px 0;
+  font-size:32px;
+}
+
+/* ===== TESTIMONIALS ===== */
+.testimonials{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
+.testimonials .test{
+  background:white; padding:20px; border-radius:15px;
+  opacity:0; transform:translateY(20px);
+  transition:all 0.6s ease-out;
+}
+.testimonials .test:hover{
+  transform:scale(1.05) translateY(-5px);
+  box-shadow:0 15px 35px rgba(0,0,0,0.25);
+}
+
+
+/* ===== CONTACT ===== */
+.contact-form{
+  background:white;
+  padding:30px;
+  border-radius:20px;
+  max-width:600px;
+  margin:auto;
+  box-shadow:0 15px 40px rgba(0,0,0,.25);
+}
+.contact-form input,
+.contact-form textarea{
+  width:100%;
+  padding:14px;
+  margin-bottom:15px;
+  border-radius:12px;
+  border:1px solid #ccc;
+  transition:.3s;
+}
+.contact-form input:focus,
+.contact-form textarea:focus{
+  outline:none;
+  border-color:var(--main);
+  box-shadow:0 0 10px rgba(111,78,55,.3);
+}
+.contact-form button{
+  background:var(--main);
+  color:white;
+  width:100%;
+  padding:14px;
+  border:none;
+  border-radius:30px;
+  font-size:16px;
+  cursor:pointer;
+  transition:.3s;
+}
+.contact-form button:hover{transform:scale(1.05);}
+#successMsg,#errorMsg{
+  display:none;
+  margin-top:15px;
+  text-align:center;
+  font-weight:bold;
+}
+#successMsg{color:green;}
+#errorMsg{color:red;}
+
+/* CONTACT INFO */
+.contact-info{
+  text-align:center;
+  margin-bottom:30px;
+  font-size:18px;
+}
+.contact-info p{margin:8px 0;}
+
+/* ===== FOOTER ===== */
+footer {
+  background: var(--main);
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: 60px;
+  position: relative;
+}
+
+footer .social-link {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+footer .social-icon {
+  width: 25px;  /* حجم صغير */
+  height: 25px;
+  vertical-align: middle;
+  filter: invert(100%); /* باش تصير بيضة لو تحب */
+  transition: transform 0.3s;
+}
+
+footer .social-icon:hover {
+  transform: scale(1.2);
+}
+
+.facebook-icon {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  margin-left: 10px;
+  background-color: black; /* دائرة بيضاء */
+  border-radius: 50%;
+  position: relative;
+  vertical-align: middle;
+  text-decoration: none;
+  transition: transform 0.3s, background-color 0.3s;
+  border: 2px solid white; /* حدود بنفسجي */
+}
+
+.facebook-icon::before {
+  content: "f";
+  color: white; /* حرف بنفسجي */
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.facebook-icon:hover {
+  transform: scale(1.2);
+  background-color: rgb(36, 32, 255);
+  color: white;
+}
+
+.facebook-icon:hover::before {
+  color: white; /* حرف أبيض عند hover */
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:900px){
+  .menu-section,.testimonials{grid-template-columns:1fr;}
+  .gallery{grid-template-columns:repeat(2,1fr);}
+  .hero h1{font-size:36px;}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="nav">
+    <h3>🍜 BDIRA RESTO</h3>
+    <div>
+      <a href="#menu">Menu</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</header>
+
+<div class="hero">
+  <div>
+    <h1>Bienvenu chez bdira resto</h1>
+    <p>bdira resto – restaurant de qualité</p>
+    <a class="btn" href="#menu">Découvrir</a>
+  </div>
+</div>
+
+<div class="floating-div"><a href="index7.html">🔥 Offre spéciale 🔥</a></div>
+
+<section id="menu">
+  <h2>Menu</h2>
+
+  <fieldset class="menu-section">
+    <legend>NOS SALADES</legend>
+    <ul>
+      <li>Salade Tunisienne - 6,000 DT</li>
+      <li>Salade César - 12,000</li>
+      <li>Salade mechwiya - 6,000 DT</li>
+      <li><a href="index1.html">voir plus ...</a></li>
+    </ul>
+  </fieldset>
+
+  <fieldset class="menu-section">
+    <legend>NOS OMELETTES</legend>
+    <ul>
+      <li>Omelette Thon - 11,000 DT</li>
+      <li>Omelette Champignon - 11,000 DT</li>
+      <li>Omelette Fruits de mer - 13,500 DT</li>
+    </ul>
+  </fieldset>
+
+  <fieldset class="menu-section">
+    <legend>NOS VOLAILLES</legend>
+    <ul>
+      <li>Escalope panné - 17,500 DT</li>
+      <li>Escalope Grillé - 17,500 DT</li>
+      <li>Cordon Bleu - 19,500 DT</li>
+      <li><a href="index2.html">voir plus ...</a></li>
+    </ul>
+  </fieldset>
+
+  <fieldset class="menu-section">
+    <legend>NOS FRUITS DE MER</legend>
+    <ul>
+      <li>Chevrettes panées - 22,500 DT</li>
+      <li>Fruits De Mer à l'ail - 28,500 DT</li>
+      <li>Séche grillé - 25,000 DT</li>
+      <li><a href="index3.html">voir plus ...</a></li>
+    </ul>
+  </fieldset>
+
+  <fieldset class="menu-section">
+    <legend>NOS GRILLADES</legend>
+    <ul>
+      <li>Cotelette D'Agneau - 27,500 DT</li>
+      <li>Cotelette de veau - 27,500 DT</li>
+      <li>Fois Grillé - 26,000 DT</li>
+      <li><a href="index4.html">voir plus ...</a></li>
+    </ul>
+  </fieldset>
+
+  <fieldset class="menu-section">
+    <legend>NOS PATES</legend>
+    <ul>
+      <li>Spaghetti Bolognaise - 24,000 DT</li>
+      <li>Spaghetti aux fruits de mer ,sauce Rouge - 28,500 DT</li>
+      <li>Spaghetti Mahboula - 30,000 DT</li>
+      <li><a href="index5.html">voir plus ...</a></li>
+    </ul>
+  </fieldset>
+
+  <fieldset class="menu-section">
+    <legend>NOS LASAGNE</legend>
+    <ul>
+      <li>Lasagne Bolognaise - 24,000 DT</li>
+      <li>Lasagne aux fruits de mer - 27,500 DT</li>
+      <li>Lasagne Poulet - 21,000 DT</li>
+    </ul>
+  </fieldset>
+
+  <fieldset class="menu-section">
+    <legend>NOS RIZ</legend>
+    <ul>
+      <li>Riz aux Fruits de Mer - 29,000 DT</li>
+      <li>Riz Mahboul - 31,000 DT</li>
+      <li>paËlla - 62,000 DT</li>
+    </ul>
+  </fieldset>
+
+  <fieldset class="menu-section">
+    <legend>NOS BOISSONS </legend>
+    <ul>
+      <li>Eau Minérale 1.5L - 2,000 DT</li>
+      <li>Eau Minérale 0.5L - 1,000 DT</li>
+      <li>Soda - 2,500 DT</li>
+      <li><a href="index6.html">voir plus ...</a></li>
+    </ul>
+  </fieldset>
+</section>
+
+<section id="gallery">
+  <h2>Galerie</h2>
+  <div class="gallery">
+    <div><img src="2.jpg" alt="Galerie image"></div>
+    <div><img src="3.jpg" alt="Galerie image"></div>
+    <div><img src="4.jpg" alt="Galerie image"></div>
+    <div><img src="5.jpg" alt="Galerie image"></div>
+    <div><img src="6.jpg" alt="Galerie image"></div>
+    <div><img src="7.jpg" alt="Galerie image"></div>
+    <div><img src="8.jpg" alt="Galerie image"></div>
+    <div><img src="9.jpg" alt="Galerie image"></div>
+    <div><img src="10.jpg" alt="Galerie image"></div>
+    <div><img src="11.jpg" alt="Galerie image"></div>
+  </div>
+</section>
+
+<section class="opening-hours">
+  <h2>Mon horaire d'ouverture</h2>
+  <div class="status">
+    <span id="openStatus"></span>
+  </div>
+  <h3>Chaque-Jour: 11H - 00H</h3>
+</section>
+
+<section id="contact">
+<h2>Contact</h2>
+<div class="contact-info">
+<p>📞 Téléphone : <strong>56 772 433</strong></p>
+<p>📧 Email : <strong>bdiraresto@gmail.com</strong></p>
+</div>
+
+<form class="contact-form"
+action="https://formspree.io/f/mojaygak"
+method="POST"
+id="contactForm">
+
+<input type="text" name="name" placeholder="Nom" required>
+<input type="email" name="email" placeholder="Email" required>
+<textarea name="message" rows="4" placeholder="Message" required></textarea>
+
+<button type="submit">Envoyer</button>
+
+<p id="successMsg">✅ Message envoyé avec succès</p>
+<p id="errorMsg">❌ Erreur, réessayez</p>
+
+</form>
+</section>
+
+<footer>
+  <div class="footer-content">
+    <p>© 2025 BDIRA RESTO – Tous droits réservés</p>
+    <p>Suivez-nous sur les réseaux sociaux :</p>
+    <div class="social-icons">
+      <a href="https://www.facebook.com/people/Restaurant-Bdira/100095005750922/#" target="_blank" class="facebook-icon"></a>
+      <!-- ممكن تضيف أيقونات إنستغرام، تويتر ... بنفس الطريقة -->
+       <a href=""></a>
+    </div>
+
+ Tel: +216 56 772 433
+  </div>
+</footer>
+
+<script>
+const form=document.getElementById('contactForm');
+const success=document.getElementById('successMsg');
+const error=document.getElementById('errorMsg');
+// ===== OPENING HOURS STATUS =====
+const openStatus = document.getElementById("openStatus");
+function checkOpeningHours(){
+  const now=new Date();
+  const hour=now.getHours();
+  if(hour>=11 && hour<24){
+    openStatus.textContent="Ouvert";
+    openStatus.style.color="var(--green)";
+  }else{
+    openStatus.textContent="Fermé";
+    openStatus.style.color="var(--red)";
+  }
+}
+checkOpeningHours();
+setInterval(checkOpeningHours, 60000); // vérifie chaque minute
+form.addEventListener('submit',async e=>{
+e.preventDefault();
+const data=new FormData(form);
+const res=await fetch(form.action,{
+method:'POST',
+body:data,
+headers:{'Accept':'application/json'}
+});
+if(res.ok){
+success.style.display='block';
+error.style.display='none';
+form.reset();
+}else{
+error.style.display='block';
+}
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOS BOISSONS</title>
+</head>
+<body>
+    <fieldset class="menu-section">
+    <legend>NOS BOISSONS</legend>
+    <ul>
+      <li>Eau Minérale 1,5 L - 2,000 DT</li>
+      <li>Eau Minérale 0,5 L - 1,000 DT</li>
+      <li>Soda - 2,500 DT</li>
+      <li>Shark - 4,000 DT</li>
+    </ul>
+  </fieldset>
+  <style>
+    .menu-section{
+  border:2px solid var(--main);
+  border-radius:15px;
+  padding:20px;
+  margin-bottom:30px;
+  background:linear-gradient(145deg, #fff5e9, #ffe6c7);
+  box-shadow:0 10px 25px rgba(0,0,0,0.2);
+  transition:all 0.4s ease, transform 0.4s ease;
+}
+.menu-section:hover{
+  transform:scale(1.03) translateY(-5px);
+  box-shadow:0 18px 40px rgba(0,0,0,0.35);
+  background:linear-gradient(120deg,#ffd19c,#ffe6c7);
+}
+.menu-section legend{
+  padding:0 10px;
+  font-weight:bold;
+  font-size:20px;
+  color:var(--main);
+}
+.menu-section ul{list-style:none; padding:0;}
+.menu-section ul li{
+  display:flex;
+  justify-content:space-between;
+  padding:10px 15px;
+  border-bottom:1px solid rgba(0,0,0,0.1);
+  transition:all 0.3s ease;
+  cursor:pointer;
+}
+.menu-section ul li:hover{
+  transform:scale(1.05);
+  color:#d35400;
+}
+body{
+  background-color: lightyellow;
+}
+  </style>
+</body>
+</html>
