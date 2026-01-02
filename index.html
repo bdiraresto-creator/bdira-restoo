@@ -6,12 +6,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" href="favicon2.png" type="image/png">
 <link rel="apple-touch-icon" href="favicon2.png">
-<link rel="icon" sizes="32x32" href="favicon2.png">
+<link rel="icon" sizes="32x32" href="2.png">
 <link rel="icon" sizes="192x192" href="favicon2.png">
 <link rel="apple-touch-icon" href="favicon2.png">
-
+  
 <!-- Favicon -->
-<link rel="icon" type="image/png" sizes="32x32" href="favicon2.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
 
 <!-- Google / Social -->
 <meta property="og:title" content="BDIRA RESTO – Restaurant à Sahline">
@@ -19,6 +19,8 @@
 <meta property="og:image" content="https://bdiraresto-creator.github.io/favicon2.png">
 <meta property="og:url" content="https://bdiraresto-creator.github.io/">
 <meta property="og:type" content="website">
+
+
 
 
 
@@ -39,6 +41,66 @@
   --green:#2ecc71;
   --red:#e74c3c;
 }
+/* FORCE MOBILE LAYOUT ON ALL SCREENS */
+body {
+  background:radial-gradient(circle at top,#2a1c10,#0b0906 65%);
+}
+
+header, .header, .nav, .brand, .hero, #menu, .gallery, section {
+  max-width:100%;
+  width:100%;
+  padding:15px;
+  margin:0 auto;
+}
+
+.nav {
+  flex-direction:column;
+  align-items:flex-start;
+}
+
+.nav a {
+  margin-left:0;
+  margin-top:10px;
+}
+
+.hero h1{
+  font-size:36px;
+  letter-spacing:2px;
+}
+
+.hero p{
+  font-size:18px;
+}
+
+.btn{
+  font-size:14px;
+  padding:12px 30px;
+}
+
+#menu{
+  grid-template-columns:1fr !important;
+  gap:20px;
+}
+
+.gallery{
+  grid-template-columns:1fr !important;
+  gap:15px;
+}
+
+.menu-section{
+  transform:none !important;
+  box-shadow:0 20px 60px rgba(0,0,0,.7);
+}
+
+.floating-div{
+  font-size:14px;
+  padding:12px 20px;
+}
+
+.testimonials{
+  grid-template-columns:1fr !important;
+}
+
 
 /* ================= RESET ================= */
 *{
@@ -291,6 +353,11 @@ h2{
 }
 
 /* ================= CONTACT ================= */
+.contact-info{
+  text-align: center;
+  color: #e3ca07;
+  padding: 50px;
+}
 .contact-form{
   max-width:600px;
   margin:auto;
@@ -300,6 +367,7 @@ h2{
   backdrop-filter:blur(18px);
   box-shadow:0 40px 120px rgba(0,0,0,1);
 }
+
 .contact-form input,
 .contact-form textarea{
   width:100%;
