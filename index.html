@@ -486,6 +486,31 @@ h2{
   margin:40px 0;
   font-size:32px;
 }
+.localisation {
+  max-width: 1000px;
+  margin: 60px auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.localisation h2 {
+  margin-bottom: 20px;
+  font-size: 26px;
+}
+
+.localisation iframe {
+  width: 100%;
+  height: 350px;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+@media (max-width: 768px) {
+  .localisation iframe {
+    height: 250px;
+  }
+}
 
 /* ===== TESTIMONIALS ===== */
 .testimonials{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
@@ -721,6 +746,16 @@ footer .social-icon:hover {
 <p>📞 Téléphone : <strong>56 772 433</strong></p>
 <p>📧 Email : <strong>bdiraresto@gmail.com</strong></p>
 </div>
+
+<section class="localisation">
+  <h2>📍 Localisation</h2>
+
+  <iframe 
+    src="https://www.google.com/maps/place/QP26%2BFHH+BDIRA+RESTO,+Unnamed+Road,+Sahline/@35.7512437,10.711459,22z/data=!4m14!1m7!3m6!1s0x13020c82c924bd3b:0x53f2b87c67a3bc67!2sQP26%2BFHH+BDIRA+RESTO,+Unnamed+Road,+Sahline!8m2!3d35.7511971!4d10.7114849!16s%2Fg%2F11dxktb3p3!3m5!1s0x13020c82c924bd3b:0x53f2b87c67a3bc67!8m2!3d35.7511971!4d10.7114849!16s%2Fg%2F11dxktb3p3?authuser=1&g_ep=Eg1tbF8yMDI1MTIwOF8wIJvbDyoASAJQAg%3D%3D"
+    loading="lazy"
+    allowfullscreen>
+  </iframe>
+</section>
 
 <form class="contact-form"
 action="https://formspree.io/f/mojaygak"
