@@ -338,6 +338,11 @@ h2{
   transform:scale(1.12);
   box-shadow:0 0 25px rgba(255,60,0,1);
 }
+.gallery-thumbs img.active{
+  filter:brightness(1);
+  border:2px solid #ff2a00;
+}
+
 /* ================= LOCALISATION ================= */
 .localisation{
   max-width:1000px;
@@ -885,6 +890,15 @@ id="contactForm">
 </footer>
 
 <script>
+  function changeGallery(img){
+  document
+    .querySelectorAll(".gallery-thumbs img")
+    .forEach(i => i.classList.remove("active"));
+
+  img.classList.add("active");
+  document.getElementById("mainGalleryImage").src = img.src;
+}
+
 /* ===== OPEN STATUS ===== */
 const openStatus=document.getElementById("openStatus");
 function checkOpeningHours(){
