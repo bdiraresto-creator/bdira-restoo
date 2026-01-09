@@ -32,12 +32,10 @@
 <style>
 /* ================= VARIABLES ================= */
 :root{
-  --gold1:#ffdd99;
-  --gold2:#d4af37;
-  --gold3:#9c7a1e;
-  --dark:#0b0906;
-  --light:#fffaf2;
-  --glass:rgba(255,255,255,.15);
+  --fire:#ff2a00;
+  --fire2:#ff7b00;
+  --dark:#050200;
+  --glass:rgba(255, 5, 5, 0.12);
   --green:#2ecc71;
   --red:#e74c3c;
 }
@@ -45,6 +43,10 @@
 body {
   background:radial-gradient(circle at top,#2a1c10,#0b0906 65%);
 }
+html{
+  scroll-behavior:smooth;
+}
+
 
 header, .header, .nav, .brand, .hero, #menu, .gallery, section {
   max-width:100%;
@@ -145,38 +147,22 @@ header{
   position:sticky;
   top:0;
   z-index:999;
-  background:linear-gradient(90deg,#000,#3a2a14,#000);
-  border-bottom:1px solid rgba(255,215,150,.4);
-  box-shadow:0 20px 60px rgba(0,0,0,.9);
+  background:#000;
+  box-shadow:0 20px 60px rgba(0,0,0,1);
 }
-.logo-out{
-  width:140px;
-  filter:
-    drop-shadow(0 0 10px rgba(255,215,150,.6))
-    drop-shadow(0 0 25px rgba(255,215,150,.5))
-    drop-shadow(0 0 45px rgba(255,215,150,.4));
-}
-.nav{
-  max-width:1200px;
+.header{
+  max-width:1300px;
   margin:auto;
-  padding:18px 30px;
+  padding:15px 30px;
   display:flex;
-  align-items:center;
   justify-content:space-between;
-}
-.nav h3{
-  font-size:26px;
-  letter-spacing:4px;
-  background:linear-gradient(90deg,var(--gold1),var(--gold2),var(--gold1));
-  -webkit-background-clip:text;
-  color:transparent;
+  align-items:center;
 }
 .nav a{
-  margin-left:25px;
   color:#fff;
+  margin-left:25px;
   text-decoration:none;
   font-weight:800;
-  letter-spacing:2px;
   position:relative;
 }
 .nav a::after{
@@ -186,85 +172,68 @@ header{
   bottom:-8px;
   width:0;
   height:2px;
-  background:linear-gradient(90deg,var(--gold1),var(--gold2));
-  transition:.4s;
+  background:linear-gradient(90deg,var(--fire),var(--fire2));
   transform:translateX(-50%);
+  transition:.4s;
 }
-.nav a:hover::after{width:120%;}
+.nav a:hover::after{width:120%}
 
 /* ================= HERO ================= */
 .hero{
-  min-height:90vh;
+  min-height:95vh;
   display:flex;
   align-items:center;
   justify-content:center;
   text-align:center;
-  position:relative;
   background:
-    linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.3)),
-    url('1.jpg') center/cover no-repeat;
+    linear-gradient(rgba(0,0,0,.9),rgba(0,0,0,.3)),
+    url("1.jpg") center/cover no-repeat;
+  position:relative;
 }
 .hero::after{
   content:"";
   position:absolute;
   inset:0;
-  background:radial-gradient(circle,rgba(255,215,150,.25),transparent 65%);
-  animation:glow 6s infinite alternate;
+  background:radial-gradient(circle,rgba(255,60,0,.35),transparent 70%);
+  animation:fireGlow 6s infinite alternate;
 }
-@keyframes glow{to{opacity:.4;}}
+@keyframes fireGlow{to{opacity:.4}}
 .hero h1{
   font-size:70px;
-  text-transform:uppercase;
-  letter-spacing:6px;
-  background:linear-gradient(180deg,#fff,var(--gold1),var(--gold2));
+  background:linear-gradient(180deg,#fff,var(--fire2),var(--fire));
   -webkit-background-clip:text;
   color:transparent;
 }
-.hero p{
-  margin:20px 0 40px;
-  font-size:22px;
-  letter-spacing:2px;
-  opacity:.9;
-}
-.hero > div{
-  position:relative;
-  z-index:2;
-}
+.hero p{margin:20px 0;font-size:22px}
 .btn{
-  padding:18px 50px;
-  border-radius:50px;
-  background:linear-gradient(135deg,var(--gold3),var(--gold2),var(--gold1));
-  color:#1a1208;
-  font-weight:900;
-  letter-spacing:2px;
-  text-decoration:none;
-  box-shadow:0 0 0 6px rgba(255,215,150,.15),0 30px 80px rgba(0,0,0,.9);
-  transition:.4s;
-}
-.btn:hover{
-  transform:scale(1.15);
-  box-shadow:0 0 40px rgba(255,215,150,.9),0 50px 120px rgba(0,0,0,1);
-}
-
-/* ================= FLOATING OFFER ================= */
-.floating-div{
-  position:fixed;
-  right:30px;
-  bottom:30px;
-  padding:18px 30px;
+  padding:18px 55px;
   border-radius:60px;
-  background:linear-gradient(145deg,rgba(255,255,255,.4),rgba(255,215,150,.3));
-  backdrop-filter:blur(16px);
-  border:2px solid rgba(255,215,150,.8);
-  box-shadow:0 0 0 8px rgba(255,215,150,.2),0 40px 120px rgba(0,0,0,1);
-  animation:float 3s infinite ease-in-out;
-}
-@keyframes float{50%{transform:translateY(-18px) scale(1.08);}}
-.floating-div a{
-  text-decoration:none;
+  background:linear-gradient(135deg,var(--fire),var(--fire2));
   color:#000;
   font-weight:900;
-  letter-spacing:2px;
+  text-decoration:none;
+  box-shadow:0 0 40px rgba(255,60,0,.8);
+  transition:.4s;
+}
+.btn:hover{transform:scale(1.15)}
+
+/* ================= OFFER FLOAT ================= */
+.floating-div{
+  position:fixed;
+  right:25px;
+  bottom:25px;
+  background:linear-gradient(135deg,var(--fire),var(--fire2));
+  padding:16px 30px;
+  border-radius:50px;
+  box-shadow:0 0 30px rgba(255,60,0,1);
+  animation:pulse 2s infinite;
+  z-index:999;
+}
+@keyframes pulse{50%{transform:scale(1.12)}}
+.floating-div a{
+  color:#000;
+  font-weight:900;
+  text-decoration:none;
 }
 
 /* ================= SECTIONS ================= */
@@ -273,6 +242,10 @@ section{
   margin:120px auto;
   padding:0 25px;
 }
+section{
+  scroll-margin-top:100px;
+}
+
 h2{
   text-align:center;
   font-size:44px;
@@ -285,35 +258,40 @@ h2{
 
 /* ================= MENU ================= */
 #menu{
+  max-width:1200px;
+  margin:120px auto;
+  padding:0 20px;
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:35px;
+  gap:30px;
+}
+#menu{
+  scroll-margin-top:100px;
+}
+
+#menu h2{
+  grid-column:1/-1;
+  text-align:center;
+  font-size:46px;
+  color:var(--fire);
 }
 .menu-section{
   padding:30px;
   border-radius:25px;
-  background:linear-gradient(145deg,rgba(255,255,255,.15),rgba(255,215,150,.15));
-  backdrop-filter:blur(18px);
-  border:1px solid rgba(255,215,150,.7);
-  box-shadow:inset 0 0 40px rgba(255,215,150,.15),0 40px 120px rgba(0,0,0,1);
-  transition:.5s;
+  background:linear-gradient(145deg,#120400,#1a0702);
+  box-shadow:0 0 35px rgba(255,60,0,.6);
+  transition:.4s;
 }
-.menu-section:hover{
-  transform:translateY(-12px);
-}
-
-
+.menu-section:hover{transform:translateY(-10px)}
 .menu-section legend{
-  padding:0 12px;
+  color:var(--fire2);
   font-size:22px;
-  letter-spacing:3px;
-  color:var(--gold1);
 }
 .menu-section li{
-  margin:14px 0;
-  font-weight:700;
   list-style:none;
+  margin:12px 0;
 }
+
 .menu-section a{
   position:relative;
   z-index:5;
@@ -322,24 +300,68 @@ h2{
 .menu-section li a{color:var(--gold1);text-decoration:none;}
 
 /* ================= GALLERY ================= */
-.gallery{
+#gallery{
+  max-width:1100px;
+  margin:120px auto;
+  padding:0 20px;
+  text-align:center;
+}
+#gallery h2{
+  font-size:46px;
+  color:var(--fire);
+  margin-bottom:40px;
+}
+.gallery-main img{
+  width:100%;
+  height:420px;
+  object-fit:cover;
+  border-radius:25px;
+  box-shadow:0 0 40px rgba(255,60,0,.7);
+}
+.gallery-thumbs{
+  margin-top:25px;
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:25px;
+  grid-template-columns:repeat(auto-fit,minmax(90px,1fr));
+  gap:15px;
 }
-.gallery div{
-  border-radius:20px;
+.gallery-thumbs img{
+  width:100%;
+  height:90px;
+  border-radius:14px;
+  object-fit:cover;
+  cursor:pointer;
+  filter:brightness(.7);
+  transition:.3s;
+}
+.gallery-thumbs img:hover{
+  filter:brightness(1);
+  transform:scale(1.12);
+  box-shadow:0 0 25px rgba(255,60,0,1);
+}
+/* ================= LOCALISATION ================= */
+.localisation{
+  max-width:1000px;
+  margin:120px auto;
+  text-align:center;
+}
+.localisation h2{
+  font-size:40px;
+  color:var(--fire);
+}
+.map-square{
+  margin:40px auto;
+  width:100%;
+  max-width:420px;
+  aspect-ratio:1/1;
+  border-radius:25px;
   overflow:hidden;
-  box-shadow:0 30px 90px rgba(0,0,0,.9);
+  box-shadow:0 0 40px rgba(255,60,0,.7);
 }
-.gallery img{
+.map-square iframe{
   width:100%;
   height:100%;
-  object-fit:cover;
-  transition:.5s;
-  filter:saturate(1.4) contrast(1.25);
+  border:0;
 }
-.gallery img:hover{transform:scale(1.15);}
 
 /* ================= OPEN STATUS ================= */
 .opening-hours{text-align:center;}
@@ -351,66 +373,90 @@ h2{
   display:inline-block;
   box-shadow:0 0 40px rgba(255,215,150,.7);
 }
+.opening-hours h2{
+  font-size:46px;
+  color:var(--fire);
+  margin-bottom:40px;
+}
 
 /* ================= CONTACT ================= */
+#contact{
+  max-width:900px;
+  margin:120px auto;
+  padding:0 20px;
+}
+h2{
+  font-size:46px;
+  color:var(--fire);
+  margin-bottom:40px;
+}
 .contact-info{
-  text-align: center;
-  color: #e3ca07;
-  padding: 50px;
+  text-align:center;
+  margin-bottom:40px;
+  color:#ffb347;
 }
 .contact-form{
-  max-width:600px;
-  margin:auto;
   padding:40px;
   border-radius:30px;
-  background:linear-gradient(145deg,rgba(255,255,255,.2),rgba(255,215,150,.15));
-  backdrop-filter:blur(18px);
-  box-shadow:0 40px 120px rgba(0,0,0,1);
+  background:#0b0301;
+  box-shadow:0 0 50px rgba(255,60,0,.6);
 }
-
 .contact-form input,
 .contact-form textarea{
   width:100%;
+  padding:16px;
   margin-bottom:18px;
-  padding:15px;
-  border-radius:12px;
   border:none;
+  border-radius:15px;
+  background:#000;
+  color:#fff;
+}
+.contact-form input:focus,
+.contact-form textarea:focus{
+  outline:none;
+  box-shadow:0 0 20px rgba(255,60,0,.8);
 }
 .contact-form button{
   width:100%;
-  padding:15px;
+  padding:16px;
   border:none;
-  border-radius:40px;
+  border-radius:50px;
+  background:linear-gradient(135deg,var(--fire),var(--fire2));
   font-weight:900;
-  background:linear-gradient(135deg,var(--gold3),var(--gold2));
+  cursor:pointer;
 }
-#successMsg,#errorMsg{display:none;text-align:center;margin-top:15px;}
-.localisation {
-  max-width: 600px;
-  margin: 60px auto;
-  text-align: center;
-}
-
-.map-square {
-  width: 100%;
-  aspect-ratio: 1 / 1; /* يخليها مربعة */
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-}
-
-.map-square iframe {
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
+.contact-form button:hover{transform:scale(1.08)}
 
 /* ================= FOOTER ================= */
 footer{
+  margin-top:120px;
   padding:40px 20px;
   text-align:center;
-  background:linear-gradient(90deg,#000,#3a2a14,#000);
-  box-shadow:0 -30px 80px rgba(0,0,0,1);
+  background:#000;
+  box-shadow:0 -30px 80px rgba(255,60,0,.6);
+}
+.facebook-icon{
+  margin-top:15px;
+  display:inline-flex;
+  width:45px;
+  height:45px;
+  border-radius:50%;
+  align-items:center;
+  justify-content:center;
+  background:#000;
+  border:2px solid var(--fire);
+  box-shadow:0 0 25px rgba(255,60,0,.8);
+  transition:.4s;
+}
+.facebook-icon::before{
+  content:"f";
+  font-size:22px;
+  font-weight:900;
+  color:#fff;
+}
+.facebook-icon:hover{
+  background:#1877f2;
+  transform:scale(1.2);
 }
 /* ================= DESKTOP DIAMOND BOOST ================= */
 @media (min-width: 992px){
@@ -505,49 +551,7 @@ h2{
   margin:40px 0;
   font-size:32px;
 }
-.localisation {
-  max-width: 1000px;
-  margin: 60px auto;
-  padding: 20px;
-  text-align: center;
-}
 
-.localisation h2 {
-  margin-bottom: 20px;
-  font-size: 26px;
-}
-
-.localisation iframe {
-  width: 100%;
-  height: 350px;
-  border: none;
-  border-radius: 15px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-}
-
-
-@media (max-width: 768px) {
-  .localisation iframe {
-    height: 250px;
-  }
-}
-.map-square{
-  position:relative;
-  width:100%;
-  padding-top:100%; /* مربع perfect */
-  border-radius:20px;
-  overflow:hidden;
-  box-shadow:0 10px 25px rgba(0,0,0,0.3);
-}
-
-.map-square iframe{
-  position:absolute;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  border:0;
-}
 /* ===== TESTIMONIALS ===== */
 .testimonials{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
 .testimonials .test{
@@ -626,32 +630,57 @@ footer .social-icon:hover {
   color: white; /* حرف أبيض عند hover */
 }
 
-/* ===== RESPONSIVE ===== */
-@media(max-width:900px){
-  .menu-section,.testimonials{grid-template-columns:1fr;}
-  .gallery{grid-template-columns:repeat(2,1fr);}
-  .hero h1{font-size:36px;}
+/* ===== MOBILE FIRST ===== */
+.nav{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
 }
+
+.hero h1{font-size:36px;}
+#menu{grid-template-columns:1fr;}
+.testimonials{grid-template-columns:1fr;}
+
+@media (min-width:768px){
+
+  .nav{
+    flex-direction:row;
+    align-items:center;
+  }
+
+  #menu{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .testimonials{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .hero h1{
+    font-size:50px;
+  }
+}
+
+@media (min-width:1024px){
+
+  #menu{
+    grid-template-columns:repeat(3,1fr);
+  }
+
+  .hero h1{
+    font-size:70px;
+  }
+
+  .menu-section:hover{
+    transform:scale(1.12) translateY(-10px);
+  }
+
+  .testimonials{
+    grid-template-columns:repeat(3,1fr);
+  }
+}
+
 </style>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Restaurant",
-  "name": "BDIRA RESTO",
-  "image": "https://bdiraresto-creator.github.io/1.jpg",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Sahline",
-    "addressLocality": "Sahline",
-    "addressRegion": "Monastir",
-    "addressCountry": "TN"
-  },
-  "telephone": "+21656772433",
-  "servesCuisine": ["Cuisine Tunisienne", "Fruits de mer"],
-  "openingHours": "Mo-Su 11:00-00:00",
-  "url": "https://bdiraresto-creator.github.io/"
-}
-</script>
 </head>
 
 <body>
@@ -773,17 +802,24 @@ footer .social-icon:hover {
 
 <section id="gallery">
   <h2>Galerie</h2>
-  <div class="gallery">
-    <div><img src="2.jpg" alt="Galerie image"></div>
-    <div><img src="3.jpg" alt="Galerie image"></div>
-    <div><img src="4.jpg" alt="Galerie image"></div>
-    <div><img src="5.jpg" alt="Galerie image"></div>
-    <div><img src="6.jpg" alt="Galerie image"></div>
-    <div><img src="7.jpg" alt="Galerie image"></div>
-    <div><img src="8.jpg" alt="Galerie image"></div>
-    <div><img src="9.jpg" alt="Galerie image"></div>
-    <div><img src="10.jpg" alt="Galerie image"></div>
-    <div><img src="11.jpg" alt="Galerie image"></div>
+
+  <div class="gallery-product">
+    <div class="gallery-main">
+      <img id="mainGalleryImage" src="2.jpg" alt="BDIRA RESTO">
+    </div>
+
+    <div class="gallery-thumbs">
+      <img src="2.jpg" onclick="changeGallery(this)">
+      <img src="3.jpg" onclick="changeGallery(this)">
+      <img src="4.jpg" onclick="changeGallery(this)">
+      <img src="5.jpg" onclick="changeGallery(this)">
+      <img src="6.jpg" onclick="changeGallery(this)">
+      <img src="7.jpg" onclick="changeGallery(this)">
+      <img src="8.jpg" onclick="changeGallery(this)">
+      <img src="9.jpg" onclick="changeGallery(this)">
+      <img src="10.jpg" onclick="changeGallery(this)">
+      <img src="11.jpg" onclick="changeGallery(this)">
+    </div>
   </div>
 </section>
   
@@ -810,7 +846,6 @@ footer .social-icon:hover {
   <h3>Chaque-Jour: 11H - 00H</h3>
 </section>
 
-  
 <section id="contact">
 <h2>Contact</h2>
 <div class="contact-info">
@@ -844,6 +879,8 @@ id="contactForm">
       <!-- ممكن تضيف أيقونات إنستغرام، تويتر ... بنفس الطريقة -->
        <a href=""></a>
     </div>
+
+ Tel: +216 56 772 433
   </div>
 </footer>
 
